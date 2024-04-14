@@ -9,7 +9,7 @@ Tagger requires minimal shell configuration to get going. Add the following 2 li
 alias tag="source <(tagger tag)"
 alias pop="source <(tagger pop)"
 ```
-This proccess substitution is necessary so that the working directory of your current shell session as well as the stack's env var can be overwritten. Of course you can replace the alias with a name you like.
+This process substitution is necessary so that the working directory of your current shell session as well as the stack's env var can be overwritten. Of course you can replace the alias with a name you like.
 
 ## Usage
 
