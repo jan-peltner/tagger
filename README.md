@@ -19,7 +19,7 @@ foo@bar:~/some/directory$ tag
 Tagged /home/some/directory
 ```
 
-Pop off the last directory and automatically cd into it:
+Pop off the last directory and automatically `cd` into it:
 ```console
 foo@bar:~$ pop
 Popped /home/some/directory
