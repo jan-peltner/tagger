@@ -32,7 +32,7 @@ fn main() {
         "tag" => {
             stack.push(path.to_owned());
             println!("export tagger_stack={}", stack.join(":"));
-            print!("echo \"\u{ea66} Tagged {}\"", path);
+            print!("echo \"\u{ea66} Tagged: {}\"", path);
         }
         "pop" => {
             if stack.is_empty() {
@@ -42,7 +42,18 @@ fn main() {
             let popped = stack.pop().unwrap();
             println!("cd {}", &popped);
             println!("export tagger_stack={}", stack.join(":"));
-            print!("echo \"\u{f0e2} Popped {}\"", &popped);
+            print!("echo \"\u{f0e2} Popped: {}\"", &popped);
+        }
+        "list" => {
+            if stack.is_empty() {
+                println!("echo \"\u{f51e} Current stack is empty\"")
+            } else {
+                println!("echo \"\u{f51e} Current stack:\n{}\"", stack.join("\n"))
+            }
+        }
+        "purge" => {
+            println!("unset tagger_stack");
+            println!("echo \"\u{f057} Purged stack\"");
         }
         _ => panic!("Invalid argument provided"),
     };
