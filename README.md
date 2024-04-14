@@ -28,6 +28,8 @@ Tagged: /home/some/directory
 
 Pop off the last directory and automatically `cd` into it:
 ```console
+foo@bar:~/some/directory$ cd ~
+#do some work in the home directory...
 foo@bar:~$ pop
 Popped: /home/some/directory
 foo@bar:~/some/directory$
@@ -35,15 +37,19 @@ foo@bar:~/some/directory$
 
 Print the stack:
 ```console
-foo@bar:~$ list
+foo@bar:~/some/directory$ tag
+Tagged: /home/some/directory
+foo@bar:~/some/directory$ cd nested/very/deeply && tag
+Tagged: /home/some/directory/nested/very/deeply
+foo@bar:~/some/directory/nested/very/deeply$ list
 Current stack: 
 /home/some/directory
 /home/some/directory/nested/very/deeply
 ```
 Purge the stack (remove all entries): 
 ```console
-foo@bar:~$ purge
+foo@bar:~/some/directory/nested/very/deeply$ purge
 Purged stack
-foo@bar:~$ list
+foo@bar:~/some/directory/nested/very/deeply$ list
 Current stack is empty
 ```
