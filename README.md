@@ -1,6 +1,6 @@
 # Tagger
 
-**Tagger is a super lightweight, stack-based navigation utility written in Rust.** Tag directories that you want to revisit and return to them later by popping them off the stack. 
+**Tagger is a super lightweight, stack-based navigation utility written in Rust.** Tag directories that you want to revisit and return to them later by popping them off the stack. This util comes in handy when you find yourself `cd`-ing between the same directories a lot. 
 
 ## Build
 Clone the repo and run `cargo build --release` to build it. Add the binary to your `$PATH`.
