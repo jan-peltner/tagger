@@ -8,7 +8,7 @@ Clone the repo and run `cargo build --release` to build it. Add the binary to yo
 *This tool uses nerdfont to render glyphs in the status messages. For the best experience, make sure that you have a proper font installed in your terminal.*
 
 ## Setup
-Tagger requires minimal shell configuration to get going. Add the following 4 lines to your shell configuration file of choice like `.bashrc` or `.zshrc`:
+Tagger requires minimal shell configuration to get going. Add the following to your shell configuration file of choice like `.bashrc` or `.zshrc`:
 
 ```bash
 # tagger
