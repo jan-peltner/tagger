@@ -29,8 +29,13 @@ fn main() {
             if let Some(arg) = args.get(1) {
                if let Ok(reg_i) = arg.parse::<usize>() {
                     if reg_i < registers.len() {
-                        registers[reg_i].push_str(&path);
-                        println!("echo \"Pushing into register {reg_i}: {}\"", &registers[reg_i]);
+                        let register_is_empty = registers[reg_i].is_empty();
+                        registers[reg_i] = path.to_owned();
+                        if register_is_empty {
+                            println!("echo \"Writing to empty register {reg_i}: {}\"", &registers[reg_i]);
+                        } else {
+                            println!("echo \"Overwriting register {reg_i}: {}\"", &registers[reg_i]);
+                        }
                         println!("export tagger_registers={}", registers.join(":"));
                         exit(0);
                     } else {
@@ -47,7 +52,7 @@ fn main() {
                 if reg.is_empty() {
                     found_empty = true;
                     reg.push_str(&path);
-                    println!("echo \"Pushing {path} into empty register {i}\"");
+                    println!("echo \"Writing to empty register {i}: {path}\"");
                     break;
                 }
             }
@@ -109,7 +114,7 @@ fn main() {
         }
         "purge" => {
             println!("unset tagger_registers");
-            println!("echo \"\u{f057} Purged registers\"");
+            println!("echo \"\u{f057} Purging registers\"");
         }
         _ => panic!("Invalid argument provided"),
     };
