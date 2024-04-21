@@ -22,7 +22,7 @@ move() {
 }
 
 ```
-This process substitution is necessary so that the working directory of your current shell session as well as the stack's env var can be overwritten. Of course you can replace the alias with a name you like.
+This process substitution is necessary so that the working directory of your current shell session as well as the stack's env var can be overwritten. Of course you can replace the alias and function names with names you like.
 
 ## Usage
 
