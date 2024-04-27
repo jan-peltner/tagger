@@ -21,7 +21,7 @@ The process substitution in `tagger.sh` is necessary so that the working directo
 Tag the current directory and add it to the next empty register:
 ```console
 foo@bar:~/some/directory$ tag
-Pushing /home/user/some/directory into empty register 0
+Writing to empty register 0: /home/user/some/directory
 ```
 
 Move into the last register's directory:
@@ -36,7 +36,7 @@ foo@bar:~/some/directory$
 Print all registers:
 ```console
 foo@bar:~/some/directory$ cd nested/very/deeply && tag
-Pushing /home/user/some/directory/nested/very/deeply into empty register 1
+Writing to empty register 1: /home/user/some/directory/nested/very/deeply 
 foo@bar:~/some/directory/nested/very/deeply$ list
 Current registers: 
 [0] /home/user/some/directory
@@ -61,7 +61,7 @@ foo@bar:~$ list
 foo@bar:~$ move 3 
 Moving into register 3: /home/user/directory/D
 foo@bar:~/directory/D$ cd baz && tag 8
-Pushing into empty register 8: /home/user/directory/D/baz
+Writing to empty register 8: /home/user/directory/D/baz
 foo@bar:~/directory/D/baz$ list
 [0] /home/user/directory/A
 [1] /home/user/directory/B
@@ -82,3 +82,12 @@ Current registers:
 [8] /home/user/somewhere/else
 ```
 If all registers are full and the index is omitted when tagging a new directory, then the last register will be overwritten (works like a stack). 
+
+You can echo the path in a register and combine it with other commands using command substitution: 
+
+```console
+foo@bar:~$ file $(rx 8)/test.json
+{
+  "this": "is a json file"
+}%  
+```
