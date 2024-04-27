@@ -8,21 +8,13 @@ Clone the repo and run `cargo build --release` to build it. Add the binary to yo
 *This tool uses nerdfont to render glyphs in the status messages. For the best experience, make sure that you have a proper font installed in your terminal.*
 
 ## Setup
-Tagger requires minimal shell configuration to get going. Add the following to your shell configuration file of choice like `.bashrc` or `.zshrc`:
+Tagger requires minimal shell configuration to get going. You can find a [setup script](scripts/tagger.sh) that you can add to your shell configuration file of choice like `.bashrc` or `.zshrc`:
 
 ```bash
 # tagger
-alias list="source <(tagger list)"
-alias purge="source <(tagger purge)"
-tag() {
-  source <(tagger tag $@)
-}
-move() {
-  source <(tagger move $@)
-}
-
+source $HOME/.config/tagger.sh
 ```
-This process substitution is necessary so that the working directory of your current shell session as well as the stack's env var can be overwritten. Of course you can replace the alias and function names with names you like.
+The process substitution in `tagger.sh` is necessary so that the working directory of your current shell session as well as the stack's env var can be overwritten. Of course you can replace the alias and function names with names you like.
 
 ## Usage
 
